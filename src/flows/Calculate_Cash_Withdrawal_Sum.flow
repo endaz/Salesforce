@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Expense_created</name>
+        <label>Expense created</label>
+        <locationX>290</locationX>
+        <locationY>99</locationY>
+        <actionName>New_Expense</actionName>
+        <actionType>quickAction</actionType>
+        <connector>
+            <targetReference>If_Expense_Amount_Is_Bigger_than_0</targetReference>
+        </connector>
+        <inputParameters>
+            <name>Amount__c</name>
+            <value>
+                <elementReference>NewExpenseAmount</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Cash_Withdrawal__c</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <name>If_Expense_Amount_Is_Bigger_than_0</name>
+        <label>If Expense Amount Is Bigger than 0</label>
+        <locationX>435</locationX>
+        <locationY>103</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cash_Withdrawal_Can_t_Be_Less_Than_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>NewExpenseAmount</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <label>Cash Withdrawal Can&apos;t Be Less Than 0</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Calculate Cash Withdrawal Sum {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Calculate Cash Withdrawal Sum</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>146</locationX>
+        <locationY>101</locationY>
+        <connector>
+            <targetReference>Expense_created</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>NewExpenseAmount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>TotalAmountSum</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+</Flow>

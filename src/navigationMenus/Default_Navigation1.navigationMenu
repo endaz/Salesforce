@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Expenses Planner</container>
+    <containerType>Network</containerType>
+    <label>Default Navigation</label>
+    <navigationMenuItem>
+        <label>Expenses</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>Lead</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Planner</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/planner</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>
