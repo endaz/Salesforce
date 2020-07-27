@@ -1,0 +1,8 @@
+<apex:component controller="VFExpensePlannedController" access="global">
+	<apex:attribute name="cID" type="ID" description="the planned exnpense ID" assignTo="{!contractID}" />
+    
+	<apex:repeat value="{!allExpsensesPlanned}" var="expensePlanned">
+    <br>{!asset.Year_Make_Model_Vin__c}<br/>
+	</apex:repeat>                
+            
+</apex:component>
