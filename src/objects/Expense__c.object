@@ -189,6 +189,7 @@
     <fields>
         <fullName>Cash_Withdrawal__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Used to store the amount of cash withdrawn</description>
         <externalId>false</externalId>
         <label>Cash Withdrawal</label>
         <trackHistory>false</trackHistory>
